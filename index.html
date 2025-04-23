@@ -44,7 +44,7 @@
     <div class="container">
         <h1>Neurotranslator Test</h1>
         <p>Click the button below to open the Neurotranslator app with the specified URL:</p>
-        <p><code>neurotranslator://open?from=ntp_neuro_instruments_panel</code></p>
+        <p><code>yandexbrowser-open-url://open?from=ntp_neuro_instruments_panel</code></p>
         
         <button id="openBtn">Open Neurotranslator</button>
         
@@ -55,7 +55,7 @@
 
     <script>
         document.getElementById('openBtn').addEventListener('click', function() {
-            const url = 'neurotranslator://open?from=ntp_neuro_instruments_panel';
+            const url = 'yandexbrowser-open-url://open?from=ntp_neuro_instruments_panel';
             const statusElement = document.getElementById('status');
             
             // Try to open the URL
