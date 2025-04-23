@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neurotranslator Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            text-align: center;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #status {
+            margin-top: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Neurotranslator Test</h1>
+        <p>Click the button below to open the Neurotranslator app with the specified URL:</p>
+        <p><code>neurotranslator://open?from=ntp_neuro_instruments_panel</code></p>
+        
+        <button id="openBtn">Open Neurotranslator</button>
+        
+        <div id="status">
+            Status: Ready
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('openBtn').addEventListener('click', function() {
+            const url = 'neurotranslator://open?from=ntp_neuro_instruments_panel';
+            const statusElement = document.getElementById('status');
+            
+            // Try to open the URL
+            window.location.href = url;
+            
+            // Check if the URL was opened successfully
+            setTimeout(function() {
+                if (document.hidden || document.webkitHidden) {
+                    statusElement.innerHTML = 'Status: Success! The app might have opened.';
+                } else {
+                    statusElement.innerHTML = 'Status: Failed to open Neurotranslator. The app might not be installed.';
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>%
